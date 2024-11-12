@@ -13,3 +13,5 @@ Computer language = Java, Python,
 박건민병신
 
 김동희는 더병신
+
+ㅇㅈ?ㅇㅇㅈ
