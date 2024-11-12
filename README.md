@@ -9,3 +9,7 @@ Langchain을 통한 프롬프팅 & 문제 생성 -> OpenAI API 사용
 Computer language = Java, Python,
 
 박건민 테스트?
+
+박건민병신
+
+김동희는 더병신
