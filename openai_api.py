@@ -32,11 +32,13 @@ def get_java_code_from_openai():
        ## {"role": "user", "content": "Java는 클래스, 추상 클래스와 형 변환, 상속, 예외처리에 관한 내용을 담을 것."},
         ##{"role": "user", "content": "각 문제는 개별적으로 실습할 수 있도록 구성할 것"},
         {"role": "user", "content": "반드시 텍스트도 없고 주석도 없는 순수한 코드만으로 응답할 것."},
+        {"role": "user", "content": "반드시 코드의 시작과 끝을 알리는 텍스트를 넣지말것. 순수한 코드만 응답할 것."},
     ]
 )
     code = response.choices[0].message.content
-    print(code)
-    return code
+    cleaned_code = code.replace("```java", "").replace("```", "")
+    print("Generated Java Code:\n", cleaned_code)
+    return cleaned_code
 
 def execute_java_code_with_jdoodle(code):
     # JDoodle API 요청을 위한 설정
