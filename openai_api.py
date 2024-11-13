@@ -15,12 +15,12 @@ api_key_ = os.getenv("API_KEY")
 from openai import OpenAI
 client_id = os.getenv("client_id")
 client_secret = os.getenv("client_secret")
-jdoodle_url = os.getenv("jdoodle_url")
+jdoodle_url_env = os.getenv("jdoodle_url_env")
 # API 키 설정
 client = OpenAI(api_key=api_key_)
 jdoodle_client_id = client_id
 jdoodle_client_secret = client_secret
-jdoodle_url_ = jdoodle_url
+jdoodle_url = jdoodle_url_env
 
 # API 요청을 위한 메시지 구성
 def get_java_code_from_openai():
@@ -29,8 +29,8 @@ def get_java_code_from_openai():
     messages=[
         {"role": "system", "content": "You are a helpful assistant Programmer."},
         {"role": "user", "content": "당신은 숙련된 프로그래머입니다. 당신의 목표는 사용자 요청에 맞춰 Java코드를 작성하는 것입니다."},
-        {"role": "user", "content": "Java는 클래스, 추상 클래스와 형 변환, 상속, 예외처리에 관한 내용을 담을 것."},
-        {"role": "user", "content": "각 문제는 개별적으로 실습할 수 있도록 구성할 것"},
+       ## {"role": "user", "content": "Java는 클래스, 추상 클래스와 형 변환, 상속, 예외처리에 관한 내용을 담을 것."},
+        ##{"role": "user", "content": "각 문제는 개별적으로 실습할 수 있도록 구성할 것"},
         {"role": "user", "content": "반드시 텍스트도 없고 주석도 없는 순수한 코드만으로 응답할 것."},
     ]
 )
