@@ -29,10 +29,10 @@ def get_java_code_from_openai():
     messages=[
         {"role": "system", "content": "You are a helpful assistant Programmer."},
         {"role": "user", "content": "당신은 숙련된 프로그래머입니다. 당신의 목표는 사용자 요청에 맞춰 Java코드를 작성하는 것입니다."},
+        {"role": "user", "content": "반드시 텍스트도 없고 주석도 없는 순수한 코드만으로 응답할 것."},
        ## {"role": "user", "content": "Java는 클래스, 추상 클래스와 형 변환, 상속, 예외처리에 관한 내용을 담을 것."},
         ##{"role": "user", "content": "각 문제는 개별적으로 실습할 수 있도록 구성할 것"},
-        {"role": "user", "content": "반드시 텍스트도 없고 주석도 없는 순수한 코드만으로 응답할 것."},
-        {"role": "user", "content": "반드시 코드의 시작과 끝을 알리는 텍스트를 넣지말것. 순수한 코드만 응답할 것."},
+        {"role": "user", "content": "초급 수준의 간단한 코드로 작성할 것"},
     ]
 )
     code = response.choices[0].message.content
