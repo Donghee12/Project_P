@@ -7,13 +7,3 @@ Langchain을 통한 프롬프팅 & 문제 생성 -> OpenAI API 사용
 수정된 코드는 다시 적재
 
 Computer language = Java, Python,
-
-다시 연결
-
-asdasdasdasd
-
-제발
-되겠지 ㅋㅋ
-2트
-
-3트 
