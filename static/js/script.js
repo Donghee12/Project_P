@@ -35,6 +35,7 @@ function generateCode() {
     });
 }
 
+
 // 코드 실행 요청
 function executeCode() {
     const code = document.getElementById('generated-code').innerText;
@@ -58,12 +59,13 @@ function executeCode() {
         return response.json();
     })
     .then(data => {
+        // 서버에서 받은 output 확인
         if (data.output) {
+            // output이 문자열인 경우 처리
             document.getElementById('execution-result').innerText = data.output;
-        } else if (data.error) {
-            alert('Execution error: ' + data.error + '\n' + data.details);
         } else {
-            alert('Unknown error occurred while executing the code.');
+            // output이 문자열이 아닌 경우 처리
+            alert('Unexpected response format');
         }
     })
     .catch(error => {
@@ -90,16 +92,22 @@ function generateExplanation() {
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error(`Error executing code: ${response.statusText}`);
+            throw new Error(`Error: ${response.statusText}`);
         }
         return response.json();  // 서버 응답을 JSON으로 변환
     })
     .then(data => {
-        // 서버에서 받은 데이터를 화면에 출력
-        document.getElementById('output').innerHTML = data.explanation || "해설을 불러오는 데 실패했습니다.";
+        if (data.error) {
+            alert(`Error: ${data.error}`);
+            return;
+        }
+
+        console.log("Explanation:", data.explanation);
+        document.getElementById('output').innerHTML = data.explanation || "No explanation found.";
     })
     .catch(error => {
-        console.error(error);
-        document.getElementById('output').innerHTML = "코드 실행 중 오류가 발생했습니다.";
+        console.error('Error:', error);
+        document.getElementById('output').innerHTML = `해설을 불러오는 데 실패했습니다. 오류 발생: ${error.message}`;
     });
 }
+
