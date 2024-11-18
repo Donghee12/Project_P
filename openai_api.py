@@ -5,6 +5,7 @@ from openai import OpenAI
 import os
 import requests
 
+
 # .env 파일을 로드
 load_dotenv()
 
@@ -24,6 +25,10 @@ jdoodle_url = jdoodle_url_env
 app = Flask(__name__)
 CORS(app)  # CORS 설정 추가
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ccad0f62845921f2ccf883f2c3049e61b7fdbaf3
 # API 요청을 위한 메시지 구성
 def get_java_code_from_openai():
     response = client.chat.completions.create(
@@ -135,6 +140,7 @@ def get_code_explanation(code):
         print(f"Error generating explanation: {e}")
         return f"Error generating explanation: {e}"
 
+<<<<<<< HEAD
 
 
 # 홈 페이지로 index.html 렌더링
@@ -142,6 +148,8 @@ def get_code_explanation(code):
 def index():
     return render_template('index.html')
 
+=======
+>>>>>>> ccad0f62845921f2ccf883f2c3049e61b7fdbaf3
 # Java 코드 생성 API
 @app.route('/generate_code', methods=['POST'])
 def generate_code():
@@ -242,9 +250,12 @@ def generate_explanation():
         # OpenAI에서 설명 생성 요청
         response = get_code_explanation(code)
 
+<<<<<<< HEAD
         # 응답 전체 내용 확인
         print("Full OpenAI response:", response)  # 전체 응답 출력
 
+=======
+>>>>>>> ccad0f62845921f2ccf883f2c3049e61b7fdbaf3
         # 응답이 어떤 형식인지 확인
         if isinstance(response, dict):
             # 응답 형식 로깅
@@ -259,6 +270,28 @@ def generate_explanation():
         print(f"Error: {str(e)}")  # 오류 로그 출력
         return jsonify({"error": str(e)}), 500  # 오류 발생시 500 상태코드와 함께 에러 메시지 반환
 
+<<<<<<< HEAD
+=======
+# 홈 페이지로 index.html 렌더링
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+#언어 선택 페이지
+@app.route("/language")
+def language_page():
+    return render_template("language_select.html")  # 언어 선택 페이지 HTML
+
+#자바 페이지
+@app.route("/java")
+def java_page():
+    return render_template("java_page.html")  # Java 관련 HTML
+
+#@app.route("/python")
+def python_page():
+    return render_template("python_page.html")  # Python 관련 HTM
+
+>>>>>>> ccad0f62845921f2ccf883f2c3049e61b7fdbaf3
 
 if __name__ == "__main__":
     app.run(debug=True)
