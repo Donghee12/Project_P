@@ -66,3 +66,32 @@ python openai_api.py
 ### 1. 메인 페이지
 Welcome to Our Service 페이지에서 Get Started Now 버튼을 클릭하여 서비스 시작 페이지로 이동합니다.
 이 페이지에서는 Java와 Python 언어를 선택할 수 있습니다.
+
+### 2. 언어 선택 페이지
+language_select.html에서 Java나 Python을 선택하여 각 언어에 대한 코드 생성 및 실행 기능을 시작할 수 있습니다.
+
+### 3. Java 코드 생성 및 실행 페이지
+**java_page.html**에서 Generate Java Code 버튼을 클릭하여 Java 코드를 자동 생성합니다.
+생성된 Java 코드는 화면에 표시됩니다.
+Execute Code 버튼을 클릭하여 생성된 코드를 실행하고 결과를 확인할 수 있습니다.
+Generate Explanation 버튼을 클릭하여 생성된 코드에 대한 설명을 받을 수 있습니다.
+
+### 4. 실행 예시
+Java 코드 생성: Generate Java Code 버튼을 클릭하면 Java 코드가 자동으로 생성됩니다.
+코드 실행: 생성된 코드를 Execute Code 버튼을 통해 실행하여 결과를 확인합니다.
+코드 설명: Generate Explanation 버튼을 클릭하여 코드의 기능과 동작에 대해 설명을 받을 수 있습니다.
+
+---
+
+## API 엔드포인트
+/generate_code
+Method: POST
+설명: OpenAI GPT를 사용하여 Java 코드를 생성합니다.
+요청 본문: 빈 요청 본문으로 코드를 생성합니다.
+
+응답 예시:
+```json
+{
+  "code": "public class Main { ... }"
+}
+```
