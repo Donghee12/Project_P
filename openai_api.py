@@ -5,7 +5,6 @@ from openai import OpenAI
 import os
 import requests
 
-
 # .env 파일을 로드
 load_dotenv()
 
@@ -252,7 +251,7 @@ def generate_explanation():
             print("Response type:", type(response))  
             print("Response content:", response)  # 응답을 출력하여 구조 확인
 
-        explanation = response['choices'][0]['message']['content']
+        explanation = response
 
         return jsonify({"explanation": explanation})
 
