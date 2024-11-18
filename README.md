@@ -34,9 +34,35 @@
 ### 1. 리포지토리 클론
 
 ```bash
-git clone https://github.com/your-username/java-code-executor.git
+git clone https://github.com/Donghee12/Project_P.git
 cd java-code-executor
 
 ```
 
-dasf
+### 2. 의존성 설치
+
+```bash
+python3 -m venv venv
+source venv/bin/activate  # Windows의 경우 `venv\Scripts\activate` 명령 사용
+pip install -r requirements.txt
+```
+
+### 3. 환경 변수 설정
+```bash
+OPENAI_API_KEY=your-openai-api-key
+JDoodle_CLIENT_ID=your-jdoodle-client-id
+JDoodle_CLIENT_SECRET=your-jdoodle-client-secret
+```
+
+###  Flask 애플리케이션 실행
+
+```bash
+python openai_api.py
+```
+
+---
+## 사용법
+
+### 1. 메인 페이지
+Welcome to Our Service 페이지에서 Get Started Now 버튼을 클릭하여 서비스 시작 페이지로 이동합니다.
+이 페이지에서는 Java와 Python 언어를 선택할 수 있습니다.
