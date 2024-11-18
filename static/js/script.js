@@ -1,11 +1,9 @@
-<<<<<<< HEAD
-=======
+
 // 메인 페이지
 function goToMain() {
     window.location.href = "/"; // Flask 라우팅 URL로 이동
 }
 
->>>>>>> ccad0f62845921f2ccf883f2c3049e61b7fdbaf3
 // 문제 생성 요청
 function generateCode() {
     fetch('/generate_code', {
