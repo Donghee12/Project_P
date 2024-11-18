@@ -2,7 +2,9 @@
 
 이 웹 애플리케이션은 사용자가 Java 코드를 생성하고 실행하며 디버깅할 수 있도록 도와주는 Flask 기반의 프로젝트입니다. OpenAI GPT를 활용하여 코드 오류를 수정하고, 코드에 대한 설명을 제공합니다.
 
-## 목차
+---
+
+## 📌 목차
 
 - [기능](#기능)
 - [설치](#설치)
@@ -13,7 +15,7 @@
 
 ---
 
-## 기능
+## 💡 기능
 
 - **코드 생성**: OpenAI GPT를 사용하여 자동으로 Java 코드를 생성합니다.
 - **코드 실행**: JDoodle API를 통해 생성된 Java 코드를 실행하고 결과를 출력합니다.
@@ -22,7 +24,7 @@
 
 ---
 
-## 설치
+## 🛠️ 설치
 
 ### 필수 사항
 
@@ -36,6 +38,7 @@
 ```bash
 git clone https://github.com/Donghee12/Project_P.git
 cd java-code-executor
+
 
 ```
 
@@ -61,7 +64,7 @@ python openai_api.py
 ```
 
 ---
-## 사용법
+## 🚀 사용법
 
 ### 1. 메인 페이지
 Welcome to Our Service 페이지에서 Get Started Now 버튼을 클릭하여 서비스 시작 페이지로 이동합니다.
@@ -83,7 +86,7 @@ Java 코드 생성: Generate Java Code 버튼을 클릭하면 Java 코드가 자
 
 ---
 
-## API 엔드포인트
+##  API 엔드포인트
 
 /generate_code
 Method: POST
@@ -130,7 +133,7 @@ Method: POST
 
 ---
 
-## 프론트엔드 기능
+## 🌍 프론트엔드 기능
 
 이 애플리케이션은 사용자가 생성된 코드를 실행하고 수정하는 등 여러 기능을 웹 페이지에서 직접 사용할 수 있도록 합니다. 주요 JavaScript 함수는 다음과 같습니다:
 
