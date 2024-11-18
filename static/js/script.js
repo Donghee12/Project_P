@@ -35,11 +35,10 @@ function generateCode() {
     });
 }
 
-
 // 코드 실행 요청
 function executeCode() {
     const code = document.getElementById('generated-code').innerText;
-    
+
     if (!code) {
         alert('Please generate Java code first.');
         return;
@@ -59,13 +58,32 @@ function executeCode() {
         return response.json();
     })
     .then(data => {
-        // 서버에서 받은 output 확인
+        const executionResultElement = document.getElementById('execution-result');
+        const fixedCodeElement = document.getElementById('fixed-code');
+
+        if (!executionResultElement) {
+            alert('Execution result element not found.');
+            return;
+        }
+
+        // 정상 출력 또는 수정된 코드 처리
         if (data.output) {
-            // output이 문자열인 경우 처리
-            document.getElementById('execution-result').innerText = data.output;
+            // 정상 실행 결과 표시
+            executionResultElement.innerText = `Execution Output:\n${data.output}`;
+        } else if (data.fixed_code && data.fixed_output) {
+            // 수정된 코드와 실행 결과 처리
+            executionResultElement.innerText = 
+                `Original Output:\n${data.original_output || "N/A"}\n\n` +
+                `Fixed Code:\n${data.fixed_code}\n\n` +
+                `Fixed Output:\n${data.fixed_output}`;
+
+            // 수정된 코드를 `fixed-code` 영역에 표시
+            if (fixedCodeElement) {
+                fixedCodeElement.value = data.fixed_code;
+            }
         } else {
-            // output이 문자열이 아닌 경우 처리
-            alert('Unexpected response format');
+            // 서버에서 예상치 못한 응답 형식 반환 시 처리
+            alert('Unexpected response format from server.');
         }
     })
     .catch(error => {
@@ -73,6 +91,7 @@ function executeCode() {
         alert('Error executing code: ' + error.message);
     });
 }
+
 
 // 해설 생성 요청
 function generateExplanation() {
@@ -103,11 +122,10 @@ function generateExplanation() {
         }
 
         console.log("Explanation:", data.explanation);
-        document.getElementById('output').innerHTML = data.explanation || "No explanation found.";
+        document.getElementById('output').innerText = data.explanation || "No explanation found.";
     })
     .catch(error => {
         console.error('Error:', error);
-        document.getElementById('output').innerHTML = `해설을 불러오는 데 실패했습니다. 오류 발생: ${error.message}`;
+        document.getElementById('output').innerText = `Failed to load explanation. Error: ${error.message}`;
     });
 }
-
