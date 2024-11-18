@@ -138,13 +138,6 @@ def get_code_explanation(code):
         return f"Error generating explanation: {e}"
 
 
-
-# 홈 페이지로 index.html 렌더링
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
 # Java 코드 생성 API
 @app.route('/generate_code', methods=['POST'])
 def generate_code():
