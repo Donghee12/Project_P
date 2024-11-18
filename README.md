@@ -36,3 +36,11 @@
 ```bash
 git clone https://github.com/your-username/java-code-executor.git
 cd java-code-executor
+
+### 1. 의존성 설치
+python3 -m venv venv
+source venv/bin/activate  # Windows의 경우 `venv\Scripts\activate` 명령 사용
+pip install -r requirements.txt
+
+
+### 3.
