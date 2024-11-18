@@ -84,6 +84,7 @@ Java 코드 생성: Generate Java Code 버튼을 클릭하면 Java 코드가 자
 ---
 
 ## API 엔드포인트
+
 /generate_code
 Method: POST
 설명: OpenAI GPT를 사용하여 Java 코드를 생성합니다.
@@ -95,3 +96,64 @@ Method: POST
   "code": "public class Main { ... }"
 }
 ```
+
+/execute_code
+Method: POST
+설명: JDoodle API를 사용하여 Java 코드를 실행합니다.
+요청 본문 :
+```json
+{
+  "code": "public class Main { ... }"
+}
+```
+응답 예시 :
+```json
+{
+  "output": "Hello, World!"
+}
+```
+/generate_explanation
+Method: POST
+설명: 생성된 Java 코드에 대한 설명을 제공합니다.
+요청 본문:
+```json
+{
+  "code": "public class Main { ... }"
+}
+```
+응답 예시:
+```json
+{
+  "explanation": "이 코드는 콘솔에 'Hello, World!'를 출력합니다."
+}
+```
+
+---
+
+## 프론트엔드 기능
+
+이 애플리케이션은 사용자가 생성된 코드를 실행하고 수정하는 등 여러 기능을 웹 페이지에서 직접 사용할 수 있도록 합니다. 주요 JavaScript 함수는 다음과 같습니다:
+
+1. generateCode()
+목적: /generate_code 엔드포인트로 Java 코드 생성을 요청합니다.
+동작 방식:
+빈 POST 요청을 서버로 보냅니다.
+서버에서 OpenAI GPT를 통해 Java 코드를 생성하고, 생성된 코드를 클라이언트로 반환합니다.
+반환된 코드를 웹 페이지에 표시합니다.
+
+3. executeCode()
+목적: 생성된 Java 코드를 실행하여 실행 결과를 화면에 출력합니다.
+동작 방식:
+페이지에서 생성된 코드를 가져옵니다.
+/execute_code 엔드포인트에 POST 요청을 보내어 JDoodle API를 사용해 코드를 실행합니다.
+실행 결과를 페이지에 표시합니다.
+
+5. generateExplanation()
+목적: 생성된 코드에 대한 설명을 제공합니다.
+동작 방식:
+페이지에서 생성된 코드를 가져옵니다.
+/generate_explanation 엔드포인트에 POST 요청을 보내어 OpenAI GPT가 생성된 코드에 대해 설명을 제공합니다.
+설명을 페이지의 출력 영역에 표시합니다.
+
+
+
