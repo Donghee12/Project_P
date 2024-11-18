@@ -5,6 +5,7 @@ from openai import OpenAI
 import os
 import requests
 
+
 # .env 파일을 로드
 load_dotenv()
 
