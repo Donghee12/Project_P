@@ -134,3 +134,5 @@ function generateExplanation() {
         document.getElementById('output').innerText = `Failed to load explanation. Error: ${error.message}`;
     });
 }
+
+

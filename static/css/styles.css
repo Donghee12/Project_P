@@ -9,35 +9,37 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #e8f1f2, #cfd7f3);
     color: #333;
-    line-height: 1.6;
+    line-height: 1.8; /* 줄 간격을 늘려줍니다 */
 }
 
 header {
     background: linear-gradient(135deg, #4e54c8, #8f94fb);
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px; /* 위쪽 패딩을 늘려 여백을 추가 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px; /* 아래쪽 간격을 추가 */
 }
 
 header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    font-size: 3.5rem; /* 헤딩 크기를 키워줍니다 */
+    margin-bottom: 20px; /* 아래쪽 여백 추가 */
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.4rem; /* 본문 텍스트 크기 조정 */
+    margin-bottom: 30px; /* 아래쪽 여백 추가 */
 }
 
 .container {
     max-width: 1200px;
-    margin: 30px auto;
+    margin: 50px auto; /* 상단 마진을 늘려서 여백을 확보 */
     padding: 20px;
 }
 
 .intro {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px; /* 서비스 소개 아래쪽 여백 추가 */
 }
 
 .intro img {
@@ -47,27 +49,29 @@ header p {
 }
 
 .intro h2 {
-    font-size: 2rem;
+    font-size: 2.5rem; /* 제목 크기를 키워줍니다 */
     color: #4e54c8;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* 아래쪽 여백 추가 */
 }
 
 .intro p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #555;
+    margin-bottom: 30px; /* 아래쪽 여백 추가 */
 }
 
 .service-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    gap: 30px; /* 카드 사이의 간격을 늘려줍니다 */
+    margin-top: 50px; /* 상단 여백 추가 */
+    margin-bottom: 50px; /* 하단 여백 추가 */
 }
 
 .service-card {
     background: white;
     border-radius: 12px;
-    padding: 20px;
+    padding: 30px; /* 내부 패딩을 늘려줍니다 */
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -81,25 +85,27 @@ header p {
 .service-card img {
     width: 100px;
     height: 100px;
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* 이미지와 텍스트 간격 추가 */
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #4e54c8;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* 아래쪽 여백 추가 */
 }
 
 .service-card p {
-    font-size: 0.9rem;
+    font-size: 1rem; /* 텍스트 크기를 약간 키워줍니다 */
     color: #555;
+    margin-bottom: 20px; /* 아래쪽 여백 추가 */
 }
 
 .cta {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 50px; /* 상단 여백 추가 */
+    margin-bottom: 50px; /* 하단 여백 추가 */
 }
 
 .cta a {
@@ -109,7 +115,7 @@ header p {
     padding: 15px 30px;
     border-radius: 50px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.2rem; /* 텍스트 크기를 키워줍니다 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background 0.3s, box-shadow 0.3s;
 }
@@ -121,17 +127,26 @@ header p {
 
 footer {
     text-align: center;
-    margin-top: 40px;
-    padding: 10px 0;
+    margin-top: 50px; /* 상단 여백 추가 */
+    padding: 20px 0;
     background: #f4f4f4;
 }
 
 footer p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #666;
 }
 
 footer a {
     color: #4e54c8;
     text-decoration: none;
+}
+
+
+.large-text {
+    font-size: 2rem !important;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+    color: #333;
 }
