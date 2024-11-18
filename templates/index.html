@@ -3,33 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Code Generator and Executor</title>
-    <link rel="stylesheet" href="static/css/style.css"> <!-- 기존 CSS 파일 유지 -->
-    <script src="static/js/script.js" defer></script> <!-- JavaScript 파일 유지 -->
+    <title>Welcome to Our Service</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <h1>Java Code Generator and Executor</h1>
 
-    <!-- Java 코드 생성 버튼 -->
-    <button onclick="generateCode()">Generate Java Code</button>
-    
-    <!-- 생성된 Java 코드 표시 -->
-    <h2>Generated Java Code:</h2>
-    <pre id="generated-code" style="max-height: 300px; overflow-y: auto;"></pre> <!-- 스크롤 추가 -->
+<header>
+    <h1>Welcome to Our Service</h1>
+    <p>AI-Powered Code Generator, Execution, and Explanation for Java and Python</p>
+</header>
 
-    <!-- Java 코드 실행 버튼 -->
-    <button onclick="executeCode()">Execute Code</button>
-    
-    <!-- 실행 결과 표시 -->
-    <h2>Execution Result:</h2>
-    <pre id="execution-result" style="max-height: 300px; overflow-y: auto;"></pre> <!-- 스크롤 추가 -->
-    
-    <!-- 설명 생성 버튼 -->
-    <button onclick="generateExplanation()">Generate Explanation</button>
-    
-    <!-- 설명 표시 -->
-    <h2>Explanation:</h2>
-    <pre id="output" style="max-height: 300px; overflow-y: auto; overflow-x: hidden; white-space: normal;"></pre>
- <!-- 스크롤 추가 -->
+<div class="container">
+    <!-- 서비스 소개 -->
+    <div class="intro">
+        <h2>About Our Platform</h2>
+        <p>Our service simplifies your journey to mastering Java and Python. Generate, execute, and understand code effortlessly in both languages!</p>
+        <img src="static/images/service-banner.png" alt="Service Banner">
+    </div>
+
+    <!-- 서비스 기능 카드 섹션 -->
+    <div class="service-section">
+        <div class="service-card">
+            <img src="static/images/code-generator.png" alt="Code Generator">
+            <h3>Code Generator</h3>
+            <p>Quickly create Java and Python programs for learning and testing.</p>
+        </div>
+        <div class="service-card">
+            <img src="static/images/code-execution.png" alt="Code Execution">
+            <h3>Code Execution</h3>
+            <p>Execute Java and Python programs instantly and debug with ease.</p>
+        </div>
+        <div class="service-card">
+            <img src="static/images/code-explanation.png" alt="Code Explanation">
+            <h3>Code Explanation</h3>
+            <p>Understand code logic with detailed AI-driven explanations for both Java and Python.</p>
+        </div>
+    </div>
+
+    <!-- 콜투액션 버튼 -->
+    <div class="cta">
+        <a href="/language">Get Started Now</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Our Service. All Rights Reserved. | <a href="/terms">Terms of Service</a></p>
+</footer>
+
 </body>
 </html>
