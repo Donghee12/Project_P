@@ -9,33 +9,18 @@
 </head>
 <body>
     <div class="wrapper">
-        <!-- main.html로 이동하는 버튼 추가 -->
         <div class="header">
+            <!-- Go to Main Page 버튼 -->
             <button onclick="goToMain()">Go to Main Page</button>
             <h1>Python Code Generator and Executor</h1>
         </div>
 
-        <div class="container">
-            <!-- Python 코드 생성 버튼 -->
-            <button class="action-btn" onclick="generatePythonCode()">Generate Python Code</button>
-            
-            <!-- 생성된 Python 코드 표시 -->
-            <h2>Generated Python Code:</h2>
-            <pre id="generated-code-python" class="code-box"></pre> <!-- 스크롤 추가 -->
-
-            <!-- Python 코드 실행 버튼 -->
-            <button class="action-btn" onclick="executePythonCode()">Execute Code</button>
-            
-            <!-- 실행 결과 표시 -->
-            <h2>Execution Result:</h2>
-            <pre id="execution-result-python" class="code-box"></pre> <!-- 스크롤 추가 -->
-            
-            <!-- 설명 생성 버튼 -->
-            <button class="action-btn" onclick="generatePythonExplanation()">Generate Explanation</button>
-            
-            <h2>Python Explanation:</h2>
-            <pre id="python-explanation" class="code-box"></pre>
+        <div id="questions-container">
+            <!-- 문제 영역이 동적으로 추가될 부분 -->
         </div>
+
+        <button class="action-btn" onclick="addNewQuestion()">Add New Question</button>
+
     </div>
 </body>
 </html>

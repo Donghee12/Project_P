@@ -163,7 +163,7 @@ function addNewQuestion() {
     
     // 생성되는 HTML 내에서 각 요소에 id를 올바르게 설정
     newQuestion.innerHTML = `
-        <h2>문제 ${questionCount}</h2>
+        <h1>문제 ${questionCount}</h2>
         <button class="action-btn" onclick="generateCode('${questionId}')">Generate Java Code</button>
         <h2>Generated Java Code:</h2>
         <pre id="${generatedCodeId}" class="generated-code code-box"></pre>
@@ -179,6 +179,7 @@ function addNewQuestion() {
 
     const container = document.getElementById('questions-container');
     container.appendChild(newQuestion);
+
 
     // DOM에 추가된 후 함수 호출
     setTimeout(() => {

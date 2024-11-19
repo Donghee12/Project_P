@@ -87,3 +87,33 @@ button.action-btn {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+
+/* 문제 제목 위에 실선 추가 */
+.question h1 {
+    position: relative;
+    margin-bottom: 20px; /* 제목과 다른 내용 간격 */
+    padding-top: 10px;   /* 제목 위 여백 */
+    border-top: 2px solid #4e54c8; /* 실선 추가 */
+    font-size: 1.5rem; /* 제목 크기 */
+    color: #4e54c8; /* 제목 색상 */
+    margin-top: 100px;
+}
+
+/* 문제 항목 간 간격을 넓히기 */
+.question {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* 생성된 코드, 실행 결과, 해설 영역 간격 조정 */
+.generated-code, .execution-result, .output {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* 버튼 스타일 */
+button.action-btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
