@@ -8,7 +8,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #e8f1f2, #cfd7f3);
-    color: #333;
+    color: #333; /* 기본 글자 색은 어두운 회색으로 변경 */
     line-height: 1.6;
     display: flex;
     justify-content: center;
@@ -36,12 +36,13 @@ body {
 
 .header h1 {
     font-size: 2.5rem;
-    color: #4e54c8;
+    color: #5c6bc0; /* 진한 보라색을 부드러운 블루 계열로 변경 */
     margin-bottom: 10px;
 }
 
+/* 버튼 스타일 */
 button {
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    background: linear-gradient(135deg, #5c6bc0, #8e99f3); /* 부드러운 블루 계열 */
     color: white;
     padding: 12px 25px;
     border: none;
@@ -55,21 +56,28 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #8f94fb, #4e54c8);
+    background: linear-gradient(135deg, #8e99f3, #5c6bc0);
     transform: scale(1.05);
+}
+
+/* 버튼이 눌린 후 나타나는 상태 */
+button:active {
+    transform: scale(1.02);  /* 눌린 상태에서 약간 작아지는 효과 */
 }
 
 .container {
     text-align: center;
 }
 
+/* 문제 제목 */
 h2 {
     font-size: 1.5rem;
-    color: #4e54c8;
+    color: #5c6bc0; /* 제목 색을 부드러운 블루로 변경 */
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
+/* 코드박스 스타일 */
 .code-box {
     background: #f7f7f7;
     padding: 15px;
@@ -80,10 +88,14 @@ h2 {
     word-wrap: break-word;
     max-height: 300px;
     overflow-y: auto;
-    text-align: left; /* 왼쪽 정렬로 수정 */
+    text-align: left; /* 왼쪽 정렬 */
+    color: #333; /* 글자 색은 어두운 회색으로 설정 */
 }
 
+/* 액션 버튼 */
 button.action-btn {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+
