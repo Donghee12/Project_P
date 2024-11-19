@@ -9,5 +9,5 @@ window.addEventListener("load", function() {
         
         // 콘텐츠 표시
         content.style.display = 'block';
-    }, 3000); // 2000ms = 2초
+    }, 2000); // 2000ms = 2초
 });
