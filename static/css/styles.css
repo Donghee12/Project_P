@@ -150,3 +150,125 @@ footer a {
     text-align: center;
     color: #333;
 }
+
+/* FAQ 스타일 */
+.faq {
+    margin-top: 50px;
+    padding: 40px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h3 {
+    font-size: 1.5rem;
+    color: #4e54c8;
+}
+
+.faq-item p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+
+/* 블로그 스타일 */
+.blog-section {
+    margin-top: 50px;
+    padding: 40px;
+    background: #e8f1f2;
+    border-radius: 8px;
+}
+
+.blog-post {
+    margin-bottom: 20px;
+}
+
+.blog-post h3 {
+    font-size: 1.5rem;
+    color: #4e54c8;
+}
+
+.blog-post p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.blog-post a {
+    color: #4e54c8;
+    text-decoration: none;
+}
+
+.blog-post a:hover {
+    text-decoration: underline;
+}
+
+body h1 {
+    font-size: 3rem; /* 원하는 크기로 조정 */
+    color: #4e54c8;  /* 텍스트 색상 */
+    margin-bottom: 20px; /* 아래쪽 여백 추가 */
+}
+
+
+/* 로딩 화면 전체 스타일 */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb); /* 그라디언트 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 다른 콘텐츠 위에 표시되도록 */
+    animation: fadeInBackground 1.5s ease-in-out; /* 배경 페이드 인 애니메이션 */
+}
+
+/* 로딩 애니메이션을 포함한 컨테이너 */
+.loading-container {
+    text-align: center;
+    animation: fadeInText 1.5s ease-in-out;
+}
+
+/* 로딩 스피너 */
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #ffffff; /* 흰색으로 설정하여 로딩 애니메이션이 보이게 함 */
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    animation: spin 2s linear infinite;
+}
+
+/* 로딩 텍스트 스타일 */
+.loading-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff; /* 흰색 텍스트 */
+    letter-spacing: 2px; /* 텍스트 간격 */
+    text-transform: uppercase;
+    animation: fadeInText 1.5s ease-in-out infinite;
+}
+
+/* 애니메이션 정의 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInText {
+    0% { opacity: 0; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+/* 배경의 페이드 인 효과 */
+@keyframes fadeInBackground {
+    0% { background: rgba(255, 255, 255, 0); }
+    100% { background: linear-gradient(135deg, #4e54c8, #8f94fb); }
+}
+
