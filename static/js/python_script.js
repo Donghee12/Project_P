@@ -32,7 +32,7 @@ function generatePythonCode() {
 
 // Python 코드 실행 요청
 function executePythonCode() {
-    const code = document.getElementById('generated-code').innerText;
+    const code = document.getElementById('generated-code-python').innerText;
 
     if (!code) {
         alert('Please generate Python code first.');
@@ -53,7 +53,7 @@ function executePythonCode() {
         return response.json(); // JSON 응답 처리
     })
     .then(data => {
-        const executionResultElement = document.getElementById('execution-result');
+        const executionResultElement = document.getElementById('execution-result-python');
         executionResultElement.innerText = ''; // 기존 결과 초기화
 
         if (data.output) {
