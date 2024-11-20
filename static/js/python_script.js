@@ -32,85 +32,51 @@ function generatePythonCode() {
 
 // Python 코드 실행 요청
 function executePythonCode() {
-    const code = document.getElementById('generated-code-python').innerText;
+    const code = document.getElementById('generated-code').innerText;
 
     if (!code) {
         alert('Please generate Python code first.');
         return;
     }
 
-    fetch('/execute_python_code', { // Flask 엔드포인트 호출
+    fetch('/execute_python_code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ code: code }), // Python 코드를 JSON으로 전달
+        body: JSON.stringify({ code: code }), // 서버로 코드 전송
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error(`Error: ${response.statusText}`);
+            throw new Error(`Error executing Python code: ${response.statusText}`);
         }
-        return response.json();
+        return response.json(); // JSON 응답 처리
     })
     .then(data => {
+        const executionResultElement = document.getElementById('execution-result');
+        executionResultElement.innerText = ''; // 기존 결과 초기화
+
         if (data.output) {
-            // 실행 결과 표시
-            document.getElementById('execution-result-python').innerText =
-                `Output:\n${data.output}\n\nCPU Time: ${data.cpu_time || 'N/A'}\nMemory: ${data.memory || 'N/A'}`;
-        } else if (data.fixed_code && data.fixed_output) {
-            // 수정된 코드 및 결과 표시
-            document.getElementById('execution-result-python').innerText =
+            // 정상 실행 결과 표시
+            executionResultElement.innerText = `Execution Output:\n${data.output}`;
+        } else if (data.original_output && data.fixed_code && data.fixed_output) {
+            // 수정된 코드 실행 결과 표시
+            executionResultElement.innerText =
                 `Original Output:\n${data.original_output}\n\n` +
                 `Fixed Code:\n${data.fixed_code}\n\n` +
-                `Fixed Output:\n${data.fixed_output}\n\n` +
-                `CPU Time: ${data.cpu_time || 'N/A'}\nMemory: ${data.memory || 'N/A'}`;
+                `Fixed Output:\n${data.fixed_output}`;
         } else {
-            alert('Unexpected response format');
+            // 예외적인 응답 형식 처리
+            alert('Unexpected response format from server.');
         }
     })
     .catch(error => {
-        console.error('Error executing Python code:', error);
-        alert('An error occurred: ' + error.message);
+        console.error('Error executing Python code:', error); // 디버깅용 콘솔 출력
+        alert('Error executing Python code: ' + error.message);
     });
 }
 
 
-// 수정된 Python 코드 실행 요청
-function executeFixedPythonCode() {
-    const fixedCode = document.getElementById('fixed-code-python').value; // 수정된 코드 입력 받기
-
-    if (!fixedCode) {
-        alert('Please provide fixed Python code.');
-        return;
-    }
-
-    fetch('/execute_fixed_python_code', { // Flask 엔드포인트 호출
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ fixed_code: fixedCode }), // 수정된 코드 전달
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Error: ${response.statusText}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.output) {
-            // 실행 결과 표시
-            document.getElementById('execution-result-python').innerText = 
-                `Output:\n${data.output}\n\nCPU Time: ${data.cpu_time || 'N/A'}\nMemory: ${data.memory || 'N/A'}`;
-        } else {
-            alert('Error executing fixed Python code: ' + (data.error || 'Unknown error'));
-        }
-    })
-    .catch(error => {
-        console.error('Error executing fixed Python code:', error);
-        alert('An error occurred: ' + error.message);
-    });
-}
 
 // Python 코드 해설 생성 요청
 function generatePythonExplanation() {

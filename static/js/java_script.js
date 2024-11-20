@@ -52,50 +52,41 @@ function executeCode() {
     fetch('/execute_code', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ code: code })  // body에 code 객체를 JSON 형식으로 전달
+        body: JSON.stringify({ code: code }), // 서버로 코드 전송
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Error executing code: ' + response.statusText);
+            throw new Error(`Error executing code: ${response.statusText}`);
         }
-        return response.json();
+        return response.json(); // JSON 응답 처리
     })
     .then(data => {
         const executionResultElement = document.getElementById('execution-result');
-        const fixedCodeElement = document.getElementById('fixed-code');
+        executionResultElement.innerText = ''; // 기존 결과 초기화
 
-        if (!executionResultElement) {
-            alert('Execution result element not found.');
-            return;
-        }
-
-        // 정상 출력 또는 수정된 코드 처리
         if (data.output) {
             // 정상 실행 결과 표시
             executionResultElement.innerText = `Execution Output:\n${data.output}`;
-        } else if (data.fixed_code && data.fixed_output) {
-            // 수정된 코드와 실행 결과 처리
-            executionResultElement.innerText = 
-                `Original Output:\n${data.original_output || "N/A"}\n\n` +
+        } else if (data.original_output && data.fixed_code && data.fixed_output) {
+            // 수정된 코드 실행 결과 표시
+            executionResultElement.innerText =
+                `Original Output:\n${data.original_output}\n\n` +
                 `Fixed Code:\n${data.fixed_code}\n\n` +
                 `Fixed Output:\n${data.fixed_output}`;
-
-            // 수정된 코드를 `fixed-code` 영역에 표시
-            if (fixedCodeElement) {
-                fixedCodeElement.value = data.fixed_code;
-            }
         } else {
-            // 서버에서 예상치 못한 응답 형식 반환 시 처리
+            // 예외적인 응답 형식 처리
             alert('Unexpected response format from server.');
         }
     })
     .catch(error => {
-        console.error('Error:', error);
+        console.error('Error:', error); // 디버깅용 콘솔 출력
         alert('Error executing code: ' + error.message);
     });
 }
+
+
 
 
 // 해설 생성 요청
