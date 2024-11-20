@@ -1,16 +1,3 @@
-window.addEventListener("load", function() {
-    // 페이지 로드가 끝난 후 2초 동안 로딩 화면 유지
-    setTimeout(function() {
-        const loader = document.getElementById('loader');
-        const content = document.getElementById('content');
-        
-        // 로딩 화면 숨기기
-        loader.classList.add('hidden');
-        // 콘텐츠 표시
-        content.style.display = 'block';
-    }, 2000); // 2000ms = 2초
-});
-
 // Intersection Observer를 이용한 스크롤 감지
 document.addEventListener("DOMContentLoaded", function () {
     const elements = document.querySelectorAll('.scroll-fade'); // 'scroll-fade' 클래스를 가진 모든 요소들
