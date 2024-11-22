@@ -21,10 +21,17 @@ def get_python_code_from_openai():
             model="gpt-4o-mini",  # 사용할 모델
             messages=[
                 {"role": "system", "content": "You are a helpful assistant Programmer."},
-                {"role": "user", "content": "의도적으로 컴파일 에러를 일으키는 간단한 Python 코드를 작성할 것"},
-                {"role": "user", "content": "반드시 순수한 코드만 작성하고, 주석이나 설명 텍스트는 포함하지 말 것."},
-                {"role": "user", "content": "라이브러리와 API를 사용하지 않는 간단한 코드일 것."},
-                {"role": "user", "content": "```python과 같은 구분자를 포함하지 말고 코드만 반환할 것."},
+                {"role": "system", "content": "당신은 사용자가 다양한 Python Code를 경험할 수 있게 도와주는 문제 생성 프로그램입니다."},
+                {"role": "user", "content": "문제 생성 시 반드시 순수한 코드만 작성하고, 주석이나 설명 텍스트는 포함하지 말 것"},
+                {"role": "user", "content": "반드시 ```python과 같은 구분자를 포함하지 말고 순수한 코드만 반환할 것"},
+                {"role": "user", "content": "Python 문제 1개를 생성하세요. 다음 주제 중 하나를 포함해야 합니다:"},
+                {"role": "user", "content": (
+                    "1. 데이터 구조 (리스트, 딕셔너리, 셋)\n"
+                    "2. 문자열 처리 (문자열 조작, 정규 표현식)\n"
+                    "3. 알고리즘 문제 (탐색, 정렬, 그래프)\n"
+                    "4. 수학적 계산 (소수, 확률, 통계)\n"
+                    "5. 클래스와 객체지향 프로그래밍 (상속, 다형성)"
+                    )}
             ]
         )
         
@@ -116,8 +123,11 @@ def get_python_code_explanation(code):
             model="gpt-4o-mini",  # 사용할 모델
             messages=[
                 {"role": "system", "content": "You are a helpful assistant Programmer."},
+                {"role": "system", "content": "당신은 사용자가 이해하지 못하는 Python 코드를 이해시키도록 도와주는 프로그래밍 선생님입니다."},
                 {"role": "user", "content": "다음 Python 코드를 해설해 주세요."},
-                {"role": "user", "content": code}
+                {"role": "user", "content": code},
+                {"role": "user", "content": "선생님처럼 설명해주세요"},
+                {"role": "user", "content": "시작을 알리는 문장 없이 바로 해설 해주세요"}
             ]
         )
 
