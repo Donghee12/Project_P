@@ -4,7 +4,9 @@ function goToMain() {
 }
 
 // 문제 생성 요청
-function generateCode() {
+function generateCode(questionId) {
+    const questionNumber = questionId.split('-')[1];  
+
     fetch('/generate_code', {
         method: 'POST',
     })
@@ -20,8 +22,8 @@ function generateCode() {
 
         // 생성된 코드 처리
         if (data.code) {
-            const codeElement = document.getElementById('generated-code');
-            const resultElement = document.getElementById('execution-result');
+            const codeElement = document.getElementById(`generated-code-${questionNumber}`);
+            const resultElement = document.getElementById(`execution-result-${questionNumber}`);
 
             if (codeElement && resultElement) {
                 codeElement.innerText = data.code;
@@ -41,8 +43,10 @@ function generateCode() {
 }
 
 // 코드 실행 요청
-function executeCode() {
-    const code = document.getElementById('generated-code').innerText;
+function executeCode(questionId) {
+    const questionNumber = questionId.split('-')[1];  
+
+    const code = document.getElementById(`generated-code-${questionNumber}`).innerText;
 
     if (!code) {
         alert('Please generate Java code first.');
@@ -63,7 +67,7 @@ function executeCode() {
         return response.json(); // JSON 응답 처리
     })
     .then(data => {
-        const executionResultElement = document.getElementById('execution-result');
+        const executionResultElement = document.getElementById(`execution-result-${questionNumber}`);
         executionResultElement.innerText = ''; // 기존 결과 초기화
 
         if (data.output) {
@@ -90,8 +94,10 @@ function executeCode() {
 
 
 // 해설 생성 요청
-function generateExplanation() {
-    const code = document.getElementById('generated-code').innerText;
+function generateExplanation(questionId) {
+    const questionNumber = questionId.split('-')[1];  
+
+    const code = document.getElementById(`generated-code-${questionNumber}`).innerText;
 
     if (!code) {
         alert('Please generate Java code first.');
@@ -118,10 +124,50 @@ function generateExplanation() {
         }
 
         console.log("Explanation:", data.explanation);
-        document.getElementById('output').innerText = data.explanation || "No explanation found.";
+        document.getElementById(`output-${questionNumber}`).innerText = data.explanation || "No explanation found.";
     })
     .catch(error => {
         console.error('Error:', error);
-        document.getElementById('output').innerText = `Failed to load explanation. Error: ${error.message}`;
+        document.getElementById(`output-${questionNumber}`).innerText = `Failed to load explanation. Error: ${error.message}`;
     });
+}
+
+
+let questionCount = 0;  // 문제 번호 추적
+
+function addNewQuestion() {
+    questionCount++;  // 문제 번호 증가
+
+    const questionId = `question-${questionCount}`;
+    const generatedCodeId = `generated-code-${questionCount}`;
+    const executionResultId = `execution-result-${questionCount}`;
+    const outputId = `output-${questionCount}`;
+
+    const newQuestion = document.createElement('div');
+    newQuestion.classList.add('question');
+    
+    // 생성되는 HTML 내에서 각 요소에 id를 올바르게 설정
+    newQuestion.innerHTML = `
+        <h1>문제 ${questionCount}</h2>
+        <button class="action-btn" onclick="generateCode('${questionId}')">Generate Python Code</button>
+        <h2>Generated Java Code:</h2>
+        <pre id="${generatedCodeId}" class="generated-code code-box"></pre>
+
+        <button class="action-btn" onclick="executeCode('${questionId}')">Execute Code</button>
+        <h2>Execution Result:</h2>
+        <pre id="${executionResultId}" class="execution-result code-box"></pre>
+
+        <button class="action-btn" onclick="generateExplanation('${questionId}')">Generate Explanation</button>
+        <h2>Explanation:</h2>
+        <pre id="${outputId}" class="output code-box"></pre>
+    `;
+
+    const container = document.getElementById('questions-container');
+    container.appendChild(newQuestion);
+
+
+    // DOM에 추가된 후 함수 호출
+    setTimeout(() => {
+        console.log("New question added and ready to be interacted with.");
+    }, 0);  // DOM이 렌더링된 후 다음 이벤트 루프에서 실행하도록 설정
 }
