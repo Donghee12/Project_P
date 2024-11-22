@@ -8,7 +8,7 @@ function goToMain() {
 function generatePythonCode(questionId) {
     const questionNumber = questionId.split('-')[1];  
 
-    fetch('/generate_python_code', { // Flask 엔드포인트 호출
+    fetch('python_routes/generate_python_code', { // Flask 엔드포인트 호출
         method: 'POST',
     })
     .then(response => {
@@ -42,7 +42,7 @@ function executePythonCode(questionId) {
         return;
     }
 
-    fetch('/execute_python_code', {
+    fetch('/python_routes/execute_python_code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ function generatePythonExplanation(questionId) {
         return;
     }
 
-    fetch('/generate_python_explanation', {
+    fetch('/python_routes/generate_python_explanation', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

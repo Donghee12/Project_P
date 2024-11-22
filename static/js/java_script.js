@@ -7,7 +7,7 @@ function goToMain() {
 function generateCode(questionId) {
     const questionNumber = questionId.split('-')[1];  
 
-    fetch('/generate_code', {
+    fetch('/java_routes/generate_code', {
         method: 'POST',
     })
     .then(response => {
@@ -53,7 +53,7 @@ function executeCode(questionId) {
         return;
     }
 
-    fetch('/execute_code', {
+    fetch('/java_routes/execute_code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ function generateExplanation(questionId) {
         return;
     }
 
-    fetch('/generate_explanation', {
+    fetch('/java_routes/generate_explanation', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -149,7 +149,7 @@ function addNewQuestion() {
     // 생성되는 HTML 내에서 각 요소에 id를 올바르게 설정
     newQuestion.innerHTML = `
         <h1>문제 ${questionCount}</h2>
-        <button class="action-btn" onclick="generateCode('${questionId}')">Generate Python Code</button>
+        <button class="action-btn" onclick="generateCode('${questionId}')">Generate Java Code</button>
         <h2>Generated Java Code:</h2>
         <pre id="${generatedCodeId}" class="generated-code code-box"></pre>
 
