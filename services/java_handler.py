@@ -12,27 +12,19 @@ client = OpenAI(api_key= os.getenv("API_KEY"))
 jdoodle_client_id = os.getenv("client_id")
 jdoodle_client_secret = os.getenv("client_secret")
 jdoodle_url = os.getenv("jdoodle_url_env")
+gpt_finetune = os.getenv("gpt_finetune")
 
 #자바코드 생성
 def get_java_code_from_openai():
     try:
         # OpenAI API 호출
         response = client.chat.completions.create(
-            model="gpt-4o-mini",  # 사용할 모델
+            model=gpt_finetune,  # 사용할 모델
             messages=[
-                {"role": "system", "content": "You are a helpful assistant Programmer."},
-                {"role": "system", "content": "당신은 사용자가 다양한 java Code를 경험할 수 있게 도와주는 문제 생성 프로그램입니다."},
+                {"role": "system", "content": "너는 정보처리기사 실기 시험에 응시하는 수험생들에게 도움이 될 만한 Java 문제를 생성하는 일을 맡을 것입니다"},
+                {"role": "user", "content": "Java 문제 1개를 생성하세요"},
                 {"role": "user", "content": "문제 생성 시 반드시 순수한 코드만 작성하고, 주석이나 설명 텍스트는 포함하지 말 것"},
-                {"role": "user", "content": "반드시 ```java과 같은 구분자를 포함하지 말고 순수한 코드만 반환할 것"},
-                {"role": "user", "content": "java 문제 1개를 생성하세요. 다음 주제를 섞거나 유연하게 포함해야 합니다:"},
-                {"role": "user", "content": (
-                    "1. 데이터 구조\n"
-                    "2. 문자열 처리 (문자열 조작, 정규 표현식 등등)\n"
-                    "3. 알고리즘 문제 (탐색, 정렬, 그래프 등등)\n"
-                    "4. 수학적 계산 (소수, 확률, 통계 등등)\n"
-                    "5. 클래스와 객체지향 프로그래밍"
-                    )},
-                {"role": "user", "content": "라이브러리는 사용하지 말 것"}
+                {"role": "user", "content": "반드시 ```java과 같은 구분자를 포함하지 말고 순수한 코드만 반환할 것"}
             ]
         )
 
