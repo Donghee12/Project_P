@@ -51,9 +51,5 @@ def python_page():
     return render_template("python_page.html")  # Python 관련 HTM
 
 
-
-
-
-
 if __name__ == "__main__":
     app.run(debug=True)

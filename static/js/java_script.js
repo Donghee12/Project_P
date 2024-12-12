@@ -49,7 +49,7 @@ function executeCode(questionId) {
     const code = document.getElementById(`generated-code-${questionNumber}`).innerText;
 
     if (!code) {
-        alert('Please generate Java code first.');
+        alert('Java 코드를 먼저 생성하세요');
         return;
     }
 
@@ -100,7 +100,7 @@ function generateExplanation(questionId) {
     const code = document.getElementById(`generated-code-${questionNumber}`).innerText;
 
     if (!code) {
-        alert('Please generate Java code first.');
+        alert('Java 코드를 먼저 생성하세요');
         return;
     }
 
@@ -149,16 +149,16 @@ function addNewQuestion() {
     // 생성되는 HTML 내에서 각 요소에 id를 올바르게 설정
     newQuestion.innerHTML = `
         <h1>문제 ${questionCount}</h2>
-        <button class="action-btn" onclick="generateCode('${questionId}')">Generate Java Code</button>
-        <h2>Generated Java Code:</h2>
+        <button class="action-btn" onclick="generateCode('${questionId}')">Java 코드 생성</button>
+        <h2>Java 코드:</h2>
         <pre id="${generatedCodeId}" class="generated-code code-box"></pre>
 
-        <button class="action-btn" onclick="executeCode('${questionId}')">Execute Code</button>
-        <h2>Execution Result:</h2>
+        <button class="action-btn" onclick="executeCode('${questionId}')">Java 코드 실행</button>
+        <h2>코드 실행 결과:</h2>
         <pre id="${executionResultId}" class="execution-result code-box"></pre>
 
-        <button class="action-btn" onclick="generateExplanation('${questionId}')">Generate Explanation</button>
-        <h2>Explanation:</h2>
+        <button class="action-btn" onclick="generateExplanation('${questionId}')">코드 해설 보기</button>
+        <h2>코드 해설:</h2>
         <pre id="${outputId}" class="output code-box"></pre>
     `;
 

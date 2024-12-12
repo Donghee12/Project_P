@@ -38,7 +38,7 @@ function executePythonCode(questionId) {
     const code = document.getElementById(`generated-code-python-${questionNumber}`).innerText;
 
     if (!code) {
-        alert('Please generate Python code first.');
+        alert('Python 코드를 먼저 생성하세요');
         return;
     }
 
@@ -87,7 +87,7 @@ function generatePythonExplanation(questionId) {
     const code = document.getElementById(`generated-code-python-${questionNumber}`).innerText;
 
     if (!code) {
-        alert('Please generate Python code first.');
+        alert('Python 코드를 먼저 생성하세요');
         return;
     }
 
@@ -134,16 +134,16 @@ function addNewQuestion() {
     // 생성되는 HTML 내에서 각 요소에 id를 올바르게 설정
     newQuestion.innerHTML = `
         <h1>문제 ${questionCount}</h2>
-        <button class="action-btn" onclick="generatePythonCode('${questionId}')">Generate Python Code</button>
-        <h2>Generated Java Code:</h2>
+        <button class="action-btn" onclick="generatePythonCode('${questionId}')">Python 코드 생성</button>
+        <h2>Python 코드:</h2>
         <pre id="${generatedCodeId}" class="generated-code code-box"></pre>
 
-        <button class="action-btn" onclick="executePythonCode('${questionId}')">Execute Code</button>
-        <h2>Execution Result:</h2>
+        <button class="action-btn" onclick="executePythonCode('${questionId}')">Python 코드 실행</button>
+        <h2>실행 결과:</h2>
         <pre id="${executionResultId}" class="execution-result code-box"></pre>
 
-        <button class="action-btn" onclick="generatePythonExplanation('${questionId}')">Generate Explanation</button>
-        <h2>Explanation:</h2>
+        <button class="action-btn" onclick="generatePythonExplanation('${questionId}')">코드 해설 보기</button>
+        <h2>코드 해설:</h2>
         <pre id="${outputId}" class="output code-box"></pre>
     `;
 
