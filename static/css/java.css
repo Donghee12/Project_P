@@ -51,8 +51,6 @@ button {
     cursor: pointer;
     transition: background 0.3s, transform 0.3s;
     margin: 10px;
-    width: 100%;
-    max-width: 300px;
 }
 
 button:hover {
