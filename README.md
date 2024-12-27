@@ -143,7 +143,7 @@ Method: POST
 
 ---
 
-## 🌍 프론트엔드 기능
+## 🌍프론트엔드 기능
 
 이 애플리케이션은 사용자가 생성된 코드를 실행하고 수정하는 등 여러 기능을 웹 페이지에서 직접 사용할 수 있도록 합니다. 주요 JavaScript 함수는 다음과 같습니다:
 
@@ -173,7 +173,7 @@ OpenAI에 전달을 합니다(java_handler.py에서 request_code_fix_from_openai
 
 ---
 
-## 🔒 보안 고려 사항
+## 🔒보안 고려 사항
 
  ### OpenAI API키와 JDoodele API 키 관리법
  #### 1.python에 .env파일을 생성
